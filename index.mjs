@@ -11,6 +11,11 @@ new CronJob(
     process.env.TZ
 )
 
+if (!process.env.URL) {
+    console.error("URL not set");
+    process.exit(1);
+}
+
 console.info("Started push job");
 
 async function pushStatus() {
